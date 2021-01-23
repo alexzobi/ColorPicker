@@ -3,9 +3,9 @@ import { View } from 'react-native';
 // @ts-ignore library not typed
 import ColorPicker from './react-native-wheel-color-picker';
 type Props = {
-  onChange: (color: string) => void;
   onChangeComplete: (color: string) => void;
   activeColor: string;
+  onChange?: (color: string) => void;
 }
 
 const ColorWheel = ({

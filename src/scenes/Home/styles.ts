@@ -3,14 +3,13 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   Container: {
     flexGrow: 1,
-    padding: 50,
+    paddingVertical: 50,
+    paddingHorizontal: 25,
     justifyContent: 'center',
     alignItems: 'center',
   },
   Picker: {
     flexGrow: 1,
-    minWidth: 300,
-    maxWidth: 400,
     backgroundColor: '#fff',
     borderRadius: 10,
     justifyContent: 'space-between',
@@ -25,6 +24,10 @@ export default StyleSheet.create({
     },
     shadowOpacity: .25,
     shadowRadius: 20,
+    width: '100%',
+    minWidth: 300,
+    maxWidth: 400,
+    height: '100%',
   },
   BottomCircle: {
     height: 1000,

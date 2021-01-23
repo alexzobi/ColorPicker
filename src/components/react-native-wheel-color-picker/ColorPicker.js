@@ -210,10 +210,22 @@ module.exports = class ColorPicker extends Component {
         this.outOfBox(this.wheelMeasure, gestureState)
       )
         return;
+
+      const { dx, dy } = gestureState;
+
+      const vector = Math.sqrt(Math.pow(dx,2) + Math.pow(dy,2));
+      const relativeDistance  = vector / this.wheelWidth * 0.5;
+
+      this.state.circularAnimation.setValue(1 - relativeDistance)
       this.wheelMovement(event, gestureState);
     },
     onMoveShouldSetPanResponder: () => true,
     onPanResponderRelease: (event, gestureState) => {
+      Animated.spring(this.state.circularAnimation, {
+        toValue : 1,
+        duration : 1,
+      }).start()
+
       const {nativeEvent} = event;
       const {radius} = this.polar(nativeEvent);
       const {hsv} = this.state;
@@ -279,6 +291,7 @@ module.exports = class ColorPicker extends Component {
       hueSaturation: hsv2Hex(this.color.h, this.color.s, 100),
       currentColor: props.color,
       hsv: {h: 0, s: 0, v: 100},
+      circularAnimation: new Animated.Value(1),
     };
     this.wheelMovement = new Animated.event(
       [
@@ -629,7 +642,16 @@ module.exports = class ColorPicker extends Component {
       .reverse();
     this.tryForceUpdate();
   }
+
   render() {
+    const animatedStyle = {
+      transform : [{ scale : this.state.circularAnimation }]
+      // transform : [{ scale : this.state.circularAnimation.interpolate({
+      //   inputRange: [0, 1],
+      //   outputRange: [0, 1]  // 0 : 150, 0.5 : 75, 1 : 0
+      // }) }]
+    }
+
     const {
       style,
       thumbSize,
@@ -702,27 +724,33 @@ module.exports = class ColorPicker extends Component {
           </View>
         )}
 				<View style={{ padding: 40, justifyContent: 'center' }}>
-					<View
-						style={{
-							position: 'absolute',
-							backgroundColor: this.props.color,
-							height: '140%',
-							aspectRatio: 1,
-							borderRadius: 1000,
-							alignSelf: 'center',
-							opacity: .25,
-						}}
+					<Animated.View
+						style={[
+              {
+                position: 'absolute',
+                backgroundColor: this.props.color,
+                height: '140%',
+                aspectRatio: 1,
+                borderRadius: 1000,
+                alignSelf: 'center',
+                opacity: .25,
+              },
+              animatedStyle,
+            ]}
 					/>
-					<View
-						style={{
-							position: 'absolute',
-							backgroundColor: this.props.color,
-							height: '120%',
-							aspectRatio: 1,
-							borderRadius: 1000,
-							alignSelf: 'center',
-							opacity: .4,
-						}}
+					<Animated.View
+						style={[
+              {
+                position: 'absolute',
+                backgroundColor: this.props.color,
+                height: '120%',
+                aspectRatio: 1,
+                borderRadius: 1000,
+                alignSelf: 'center',
+                opacity: .4,
+              },
+              animatedStyle,
+            ]}
 					/>
 					{!swatchesOnly && (
 						<View style={[ss.wheel]} key={'$1'} onLayout={this.onSquareLayout}>

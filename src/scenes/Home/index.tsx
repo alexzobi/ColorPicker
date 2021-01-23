@@ -21,7 +21,6 @@ const Home = () => {
               mb={50}
             />
             <ColorWheel
-              onChange={color => console.log('ALEXDEBUG: color', color)}
               onChangeComplete={setActiveColor}
               activeColor={activeColor}
             />

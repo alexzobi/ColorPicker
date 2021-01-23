@@ -14,24 +14,22 @@ const ColorWheel = ({
   activeColor,
 }: Props) => {
   const picker = React.createRef<ColorPicker>();
+  const slider = React.createRef<ColorPicker>();
 
   return (
     <View style={{ height: '50%' }}>
-      {/* <View style={{ padding: 20, backgroundColor: activeColor, opacity: .75}}> */}
-        <ColorPicker
-          ref={picker}
-          color={activeColor}
-          swatches={false}
-          onColorChange={onChange}
-          onColorChangeComplete={onChangeComplete}
-          thumbSize={20}
-          sliderSize={0}
-          noSnap={true}
-          row={false}
-        />
-      {/* </View> */}
+      <ColorPicker
+        ref={picker}
+        color={activeColor}
+        swatches={false}
+        onColorChange={onChange}
+        onColorChangeComplete={onChangeComplete}
+        thumbSize={20}
+        sliderSize={10}
+        noSnap={true}
+        row={false}
+      />
     </View>
-    // <SomeButton onPress={() => this.picker.revert()} />
   )
 };
 

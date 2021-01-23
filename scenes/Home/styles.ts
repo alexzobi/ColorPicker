@@ -20,5 +20,6 @@ export default StyleSheet.create({
     },
     shadowOpacity: .25,
     shadowRadius: 20,
+    padding: 50,
   }
 })

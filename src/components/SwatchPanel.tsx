@@ -5,10 +5,12 @@ import Swatch from './Swatch';
 
 type Props = {
   activeColor: string;
+  onSwatchPress: (color: string) => void;
 }
 
 const SwatchPanel = ({
   activeColor,
+  onSwatchPress,
 }: Props) => {
   const initialColorHistory = [
     activeColor,
@@ -32,6 +34,7 @@ const SwatchPanel = ({
       colorHistory.map((color, idx) => (
         <Swatch
           key={`Swatch_${color}_${idx}`}
+          onPress={onSwatchPress}
           color={color}
         />
       ))

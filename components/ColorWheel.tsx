@@ -1,24 +1,36 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { View } from 'react-native';
 // @ts-ignore library not typed
-import { ColorWheel as RNColorWheel} from 'react-native-color-wheel';
-
+import ColorPicker from './react-native-wheel-color-picker';
 type Props = {
   onChange: (color: string) => void;
   onChangeComplete: (color: string) => void;
+  activeColor: string;
 }
 
 const ColorWheel = ({
   onChange,
   onChangeComplete,
-}: Props) => (
-  <RNColorWheel
-    initialColor="#ee0000"
-    onColorChange={onChange}
-    onColorChangeComplete={onChangeComplete}
-    style={{width: Dimensions.get('window').width}}
-    thumbStyle={{ height: 30, width: 30, borderRadius: 30}}
-  />
-);
+  activeColor,
+}: Props) => {
+  const picker = React.createRef<ColorPicker>();
+  const slider = React.createRef<ColorPicker>();
+
+  return (
+    <View style={{ height: '50%' }}>
+      <ColorPicker
+        ref={picker}
+        color={activeColor}
+        swatches={false}
+        onColorChange={onChange}
+        onColorChangeComplete={onChangeComplete}
+        thumbSize={20}
+        sliderSize={10}
+        noSnap={true}
+        row={false}
+      />
+    </View>
+  )
+};
 
 export default ColorWheel;

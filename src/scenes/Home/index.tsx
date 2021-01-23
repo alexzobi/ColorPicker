@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
-import { ColorWheel, SwatchPanel } from '../../components';
+import { ColorWheel, SwatchPanel, Header } from '../../components';
 
 import styles from './styles';
 
@@ -14,7 +14,12 @@ const Home = () => {
       <View style={styles.Picker__Shadow}>
         <View style={styles.Picker}>
           <View style={[ styles.TopBar, { backgroundColor: activeColor }]} />
-          <View style={{ paddingHorizontal: 50, flexGrow: 1 }}>
+          <View style={{ paddingHorizontal: 20, flexGrow: 1 }}>
+            <Header
+              color={activeColor}
+              onPress={() => console.log('ALEXDEBUG: navigate back')}
+              mb={50}
+            />
             <ColorWheel
               onChange={color => console.log('ALEXDEBUG: color', color)}
               onChangeComplete={setActiveColor}

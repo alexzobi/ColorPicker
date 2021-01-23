@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Home } from './scenes';
+import { Home } from './src/scenes';
 
 declare const global: {HermesInternal: null | {}};
 

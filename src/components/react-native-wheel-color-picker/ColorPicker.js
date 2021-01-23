@@ -19,6 +19,9 @@ const srcWheel = require('./assets/graphics/ui/color-wheel.png');
 const srcSlider = require('./assets/graphics/ui/black-gradient.png');
 const srcSliderRotated = require('./assets/graphics/ui/black-gradient-rotated.png');
 
+import LightbulbOff from '../../assets/lightbulb_off.svg';
+import LightbulbOn from '../../assets/lightbulb_on.svg';
+
 const PALLETE = [
   '#000000',
   '#888888',
@@ -760,29 +763,49 @@ module.exports = class ColorPicker extends Component {
               {this.disc}
             </View>
           ) : (
-            <View style={[ss.slider, sliderStyle]} key={'$2'}>
-              <View style={[ss.grad, {backgroundColor: hex}]}>
-                <Image
-                  style={ss.sliderImg}
-                  source={row ? srcSliderRotated : srcSlider}
-                  resizeMode="stretch"
-                />
-              </View>
-              <Animated.View
-                style={[
-                  ss.sliderThumb,
-                  sliderThumbStyle,
-                  Elevations[4],
-                  {pointerEvents: 'none'},
-                ]}
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: 50,
+                paddingHorizontal: 60,
+              }}>
+              <LightbulbOn
+                stroke={this.props.color}
+                height={50}
+                width={35}
+                style={{ marginRight: 5 }}
               />
-              <View
-                style={[ss.cover]}
-                onLayout={this.onSliderLayout}
-                {...sliderPanHandlers}
-                ref={(r) => {
-                  this.slider = r;
-                }}></View>
+              <View style={[ss.slider, sliderStyle]} key={'$2'}>
+                <View style={[ss.grad, {backgroundColor: hex}]}>
+                  <Image
+                    style={ss.sliderImg}
+                    source={row ? srcSliderRotated : srcSlider}
+                    resizeMode="stretch"
+                  />
+                </View>
+                <Animated.View
+                  style={[
+                    ss.sliderThumb,
+                    sliderThumbStyle,
+                    Elevations[4],
+                    {pointerEvents: 'none'},
+                  ]}
+                />
+                <View
+                  style={[ss.cover]}
+                  onLayout={this.onSliderLayout}
+                  {...sliderPanHandlers}
+                  ref={(r) => {
+                    this.slider = r;
+                  }}></View>
+              </View>
+              <LightbulbOff
+                fill={this.props.color}
+                height={40}
+                width={30}
+                style={{ marginHorizontal: 10 }}
+              />
             </View>
           ))}
         {swatches && swatchesLast && (

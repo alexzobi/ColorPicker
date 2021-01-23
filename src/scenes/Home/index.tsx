@@ -33,6 +33,7 @@ const Home = () => {
           />
           <SwatchPanel
             activeColor={activeColor}
+            onSwatchPress={setActiveColor}
           />
         </View>
       </View>

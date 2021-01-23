@@ -1,14 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 type Props = {
   color: string;
+  onPress: (color: string) => void;
 }
 
 const Swatch = ({
-  color
+  color,
+  onPress,
 }: Props) => (
-  <View
+  <TouchableOpacity
+    onPress={() => onPress(color)}
     style={{
       height: 40,
       width: 40,

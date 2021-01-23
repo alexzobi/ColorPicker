@@ -323,6 +323,11 @@ module.exports = class ColorPicker extends Component {
   componentDidMount() {
     this.mounted = true;
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.color !== this.props.color) this.animate(this.props.color, undefined, undefined, undefined, true)
+  }
+
   componentWillUnmount() {
     this.mounted = false;
   }
@@ -513,7 +518,7 @@ module.exports = class ColorPicker extends Component {
       this.slideY.setValue(range);
     }
   };
-  animate = (color, who, max, force) => {
+  animate = (color, who, max, force, byPassUpdate = false) => {
     const specific = typeof who == 'string',
       who_hs = who == 'hs',
       who_v = who == 'v';
@@ -551,8 +556,11 @@ module.exports = class ColorPicker extends Component {
       this.renderDiscs();
     });
     // this.setState({currentColor:hsv2Hex(hsv)}, x=>this.tryForceUpdate())
-    this.props.onColorChange(hsv2Hex(hsv));
-    if (this.props.onColorChangeComplete)
+    if (!byPassUpdate) {
+      this.props.onColorChange(hsv2Hex(hsv));
+    }
+
+    if (this.props.onColorChangeComplete && !byPassUpdate)
       this.props.onColorChangeComplete(hsv2Hex(hsv));
     let anims = [];
     if (who_hs || !specific)

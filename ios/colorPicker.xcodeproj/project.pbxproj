@@ -27,11 +27,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = colorPicker/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = colorPicker/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = colorPicker/main.m; sourceTree = "<group>"; };
-		22CA2DE373FD5CDF3EEC53AD /* Pods-colorPicker-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorPicker-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-colorPicker-tvOSTests/Pods-colorPicker-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2AF08A0CB289F02F4DFB58A0 /* libPods-colorPicker-colorPickerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-colorPicker-colorPickerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3939A5E485DB63E25D09A67F /* Pods-colorPicker-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorPicker-tvOS.release.xcconfig"; path = "Target Support Files/Pods-colorPicker-tvOS/Pods-colorPicker-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		3F55A99CD6BC1E5F46B029A5 /* Pods-colorPicker-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorPicker-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-colorPicker-tvOS/Pods-colorPicker-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		43E02D210C908228E80C1EDA /* Pods-colorPicker-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorPicker-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-colorPicker-tvOSTests/Pods-colorPicker-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = colorPicker/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6FD6F3655BC8455D1CE491F /* Pods-colorPicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-colorPicker.debug.xcconfig"; path = "Target Support Files/Pods-colorPicker/Pods-colorPicker.debug.xcconfig"; sourceTree = "<group>"; };
 		D332C17069033C6D49C38495 /* libPods-colorPicker-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-colorPicker-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,10 +100,6 @@
 				FFC1153D211B51EED9B988BD /* Pods-colorPicker.release.xcconfig */,
 				D9B61FB6FB2AF26757CD1C90 /* Pods-colorPicker-colorPickerTests.debug.xcconfig */,
 				02A4583343C419BA57C1F25A /* Pods-colorPicker-colorPickerTests.release.xcconfig */,
-				3F55A99CD6BC1E5F46B029A5 /* Pods-colorPicker-tvOS.debug.xcconfig */,
-				3939A5E485DB63E25D09A67F /* Pods-colorPicker-tvOS.release.xcconfig */,
-				22CA2DE373FD5CDF3EEC53AD /* Pods-colorPicker-tvOSTests.debug.xcconfig */,
-				43E02D210C908228E80C1EDA /* Pods-colorPicker-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
